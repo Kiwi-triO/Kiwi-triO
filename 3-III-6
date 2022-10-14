@@ -8,7 +8,31 @@ int main() {
 	for (int i = 5; i <= 120; i += 5) {
 		cout << i * kurs << endl;
 	}
-
 }
 
+//#include<iostream>
+//using namespace std;
+//
+//int main() {
+//
+//	short dollar = 5, kurs;
+//	cin >> kurs;
+//	while (dollar <= 120) {
+//		cout << dollar * kurs << endl;
+//		dollar += 5;
+//	}
+//}
 
+//#include<iostream>
+//using namespace std;
+//
+//int main() {
+//
+//	short dollar = 5, kurs;
+//	cin >> kurs;
+//	do {
+//		cout << dollar * kurs << endl;
+//		dollar += 5;
+//	}
+//	while (dollar <= 120);
+//}
