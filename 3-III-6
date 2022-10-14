@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	
+	short dollar, kurs;
+	cin >> kurs;
+	for (int i = 5; i <= 120; i += 5) {
+		cout << i * kurs << endl;
+	}
+
+}
+
+
