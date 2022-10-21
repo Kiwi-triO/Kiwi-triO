@@ -1,0 +1,14 @@
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+void f(int a) {
+	cout << a % 10 << a / 10;
+}
+
+int main() {
+	int x;
+	cin >> x;
+	f(x);
+}
