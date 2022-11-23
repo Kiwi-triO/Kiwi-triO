@@ -1,14 +1,16 @@
 #include<iostream>
-#include<iomanip>
 
 using namespace std;
 
-void f(int a) {
-	cout << a % 10 << a / 10;
+void func(int x) {
+	if (x >= 10 && x <= 99) {
+		cout << x % 10 << x / 10;
+	}
+	else cout << x;
 }
 
 int main() {
-	int x;
-	cin >> x;
-	f(x);
+	int n;
+	cin >> n;
+	func(n);
 }
