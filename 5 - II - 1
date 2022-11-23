@@ -1,0 +1,13 @@
+#include<iostream>
+
+using namespace std;
+
+int main() {
+	int k; double x; double sum = 0;
+	cin >> k >> x;
+	for (int i = 1; i <= k; i++) {
+		sum += pow(x, i) / i;
+		cout << i << '\t' << sum << endl;
+	}
+	
+}
