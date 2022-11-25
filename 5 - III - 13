@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 	int x = 2,/*сначала х для i = 2*/ i = 1;// x = i!
 	double sum = 0, slagaemoe = 3, e; cin >> e;
-	while (/*fabs(slagaemoe) >= e*/ i!= 7) {
+	while (fabs(slagaemoe) <= e) {
 		sum += slagaemoe;
 		cout << fixed << setprecision(0) << i << ' ';
 		cout << fixed << setprecision(10) << sum << endl;
