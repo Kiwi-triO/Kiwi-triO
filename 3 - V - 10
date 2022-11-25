@@ -1,0 +1,19 @@
+#include<iostream>
+
+using namespace std;
+
+double func(double x) {
+	return log(abs(x - 2));
+}
+
+int main() {
+
+	double a, b, h; cin >> a >> b >> h;
+	while (a <= b) {
+		if (a == 2) {
+			cout << a << '\t' << "undefined" << endl;
+		}
+		else cout << a << '\t' << func(a) << endl;
+		a += h;
+	}
+}
