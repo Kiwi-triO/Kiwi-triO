@@ -1,0 +1,30 @@
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+double func(double x, double e, int &n) {
+	double s = 0, a = pow(-1,0) * pow(x,0);
+	int c = 1, k = 2, i = 6, z = 3; 
+	//c - для знака, к - степень, i - факториал, z - for next fact
+	n = 0;
+	while (fabs(a) >= e) {
+		s += a;
+		a = pow(-1, c) * pow(x, k) / i;
+		c++; k += 2; n++;
+		i = i * (z + 1) * (z + 2); z += 2;
+	}
+	return s;
+}
+
+int main() {
+	setlocale(LC_ALL, "ru"); cout << setprecision(3);
+	double a = 0, b = 1, e, h = 0.1, f, x;
+	cout << "Введите е: "; cin >> e;
+	int n, i;
+	cout << "i\t x\t f(x)\t n\n";
+	for (x = a, i = 1; x <= b; x += h, i++) {
+		f = func(x, e, n);
+		cout << i << "\t " << x << "\t " << f << "\t " << n << endl;
+	}
+}
