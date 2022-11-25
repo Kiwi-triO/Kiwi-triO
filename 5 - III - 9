@@ -1,0 +1,17 @@
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+	double x = 6, a = 4, i = 1, e, slagaemoe = -1;
+	double sum = 0; cin >> e;
+	while (fabs(slagaemoe) >= e) {
+		sum += slagaemoe;
+		cout << fixed << setprecision(0) << i << ' ';
+		cout << fixed << setprecision(10) << sum << endl;
+		i++;
+		slagaemoe = pow(-1, i) / x;
+		x = x * a * (a + 1); a += 2;		
+	}
+}
