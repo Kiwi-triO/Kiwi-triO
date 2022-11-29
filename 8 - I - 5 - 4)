@@ -1,0 +1,28 @@
+#include<iostream>
+
+using namespace std;
+
+int nod(int a, int b) {
+	if (a < b) { swap(a, b); }
+	while (b) {
+		a %= b;
+		swap(a, b);
+	}
+	return a;
+}
+
+int main() {
+	setlocale(LC_ALL, "ru");
+	//int m, n; cin >> m >> n;
+	int k, M; cout << "Введите кол-во чисел: "; cin >> k;
+	int* mas = new int[k];
+	for (int i = 0; i < k; i++) {
+		cin >> mas[i];
+	}
+	M = mas[0];
+	for (int i = 1; i < k; i++) {
+		M = nod(M, mas[i]);
+	}
+	cout << M;
+	delete[] mas;	
+}
