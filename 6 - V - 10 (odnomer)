@@ -1,0 +1,51 @@
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int func(int a) {
+	int x, y, z; bool fl = true;
+	if (abs(a) >= 10 && abs(a) <= 99) {
+		x = abs(a) % 10; y = abs(a) / 10;
+		if (x != y) {
+			fl = false;
+			return fl;
+		}
+	}
+	if (abs(a) >= 100 && abs(a) <= 1000) {
+		x = abs(a) % 10; y = (abs(a) / 10) % 10; z = abs(a) / 100;
+		if (x != y && x != z && y != z) {
+			fl = false;
+			return fl;
+		}
+	}
+	return fl;
+}
+
+
+int main() {
+	int n; cin >> n;
+	int* ar = new int[n];
+	for (int i = 0; i < n; i++) {
+		cin >> ar[i];
+	}
+
+	for (int i = 0; i < n; i++) {
+		if (ar[i] / 10 == 0) {
+			for (int j = i; j < n - 1; j++) {
+				ar[j] = ar[j + 1];
+			}
+			n--; i--;
+		}
+		if (func(ar[i]) == false) {
+			for (int j = i; j < n - 1; j++) {
+				ar[j] = ar[j + 1];
+			}
+			n--; i--;
+		}
+	}
+
+	for (int i = 0; i < n; i++) {
+		cout << ar[i] << " ";
+	}
+}
