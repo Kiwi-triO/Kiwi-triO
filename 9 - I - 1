@@ -1,0 +1,18 @@
+#include<fstream>
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+ifstream in("input.txt");
+
+int main() {
+	char c; cin >> c;
+	string s; int k = 0;
+	while (getline(in, s)) {
+		if (s[0] == c) {
+			k++;
+		}
+	}
+	cout << k;
+}
