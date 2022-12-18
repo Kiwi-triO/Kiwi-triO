@@ -8,11 +8,11 @@ ifstream in("input.txt");
 
 int main() {
 	char c; cin >> c;
+	c = tolower(c);
 	string s; int k = 0;
 	while (getline(in, s)) {
-		if (s[0] == c) {
-			k++;
-		}
+		if (tolower(s[0]) == c)	k++;
 	}
 	cout << k;
+	in.close();
 }
