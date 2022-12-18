@@ -25,7 +25,6 @@ int main() {
 		}
 		if (ktemp > kfinal) {
 			kfinal = ktemp; 
-			ktemp = 0;
 			maxpoint = i;
 		}
 		ktemp = 0;
