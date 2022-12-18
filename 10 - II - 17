@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+
+using namespace std;
+
+ifstream in("input.txt");
+ofstream out("output.txt");
+
+struct student {
+	int kurs, group, marks[5];
+	string familiya, fakultet;
+};
+
+int main() {
+	int i = 0, count = 0;
+	student mas[20];
+	while (in.peek() != EOF) {
+		in >> mas[i].familiya >> mas[i].fakultet >> mas[i].kurs;
+		in >> mas[i].group;
+		for (int q = 0; q < 5; q++) {
+			in >> mas[i].marks[q];
+		}
+		i++;
+	}
+	for (int k = 0; k < i; k++) {
+		for (int q = 0; q < 5; q++) {
+			if (mas[k].marks[q] == 4 || mas[k].marks[q] == 5) count++;
+		}
+		if (count == 5) {
+			out << mas[k].familiya << " ";
+			out << mas[k].fakultet << " ";
+			out << mas[k].kurs << " ";
+			out << mas[k].group << " ";
+			for (int x = 0; x < 5; x++) 
+				out << mas[k].marks[x] << " ";
+			out << endl;
+		}
+		count = 0;
+	}
+}
