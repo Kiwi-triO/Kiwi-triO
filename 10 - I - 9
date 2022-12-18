@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+struct point {
+	int x, y, z;
+};
+
+double dlina(point a, point b) {
+	return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2) + pow(a.z - b.z, 2));
+}
+
+int main() {
+	int n, maxpoint = 0, ktemp = 0, kfinal = 0;
+	double r;
+	cout << "Skolko radius? "; cin >> r;
+	cout << "Skolko tochek? "; cin >> n;
+	point* mas = new point[n];
+	for (int i = 0; i < n; i++) {
+		cin >> mas[i].x >> mas[i].y >> mas[i].z;
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (dlina(mas[i], mas[j]) <= r) ktemp++;
+		}
+		if (ktemp > kfinal) {
+			kfinal = ktemp; 
+			ktemp = 0;
+			maxpoint = i;
+		}
+		ktemp = 0;
+	}
+	cout << "Iskomaya point (x,y,z): ";
+	cout << mas[maxpoint].x << " " << mas[maxpoint].y << " " << mas[maxpoint].z;
+}
