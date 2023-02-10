@@ -1,0 +1,40 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main() {
+
+	string s; getline(cin, s);
+	bool ans = true;
+
+	//проверка всех нюансов записи числа в строке
+	if (s[0] == '0' && isdigit(s[1])) { //если написано что-то вроде 01.123
+		ans = false;
+	}
+	else if (s[0] == '-' && s[1] == '0' && isdigit(s[2])) { //аналогично первому для отриц. числа
+		ans = false;
+	}
+	else if (s.find('.') == -1) { //если нет точки (число целочисленное)
+		ans = false;
+	}
+	else if (s.find('.') != s.rfind('.')) { //если точка не одна
+		ans = false;
+	}
+	else if (s.rfind('.') == s.size() - 1) { //если после точки нет ничего
+		ans = false;
+	}
+	else {
+		for (int i = 0; i < s.size(); i++) {
+			if (s[i] == '.' || isdigit(s[i])) {
+				ans = true;
+			}
+			else {
+				ans = false;
+				break;
+			}
+
+		}
+	}
+	cout << (ans ? "YES" : "NO");
+}
