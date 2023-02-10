@@ -1,0 +1,23 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+
+using namespace std;
+
+int main() {
+	int n, x;
+	cin >> n >> x;
+	ofstream fout("txt.bin", ios_base::binary);
+	ifstream fin("txt.bin", ios_base::binary);
+	for (int i = 1; i <= n; i++) {
+		fout.write((char*)&i, sizeof(int));//преобразовываем ссылку на "i" к указателю на char
+	}
+	fout.close();
+	int tmp;
+	while(!fin.eof()) {
+		fin.read((char*)&tmp, sizeof(int));
+		if (tmp % x == 0) cout << tmp << " ";
+	}
+	fin.close();
+
+}
