@@ -1,0 +1,38 @@
+#include<iostream>
+
+using namespace std;
+
+void f(int n, int row, int x, int &k, int c) {
+	while (k < row / 2) {
+		cout << "\t" << "\t";
+		for (int i = 0; i < c; i++) cout << " ";
+		for (int i = 0; i < n; i++) cout << x;
+		for (int i = 0; i < c; i++) cout << " ";
+		cout << endl;
+		k++;
+		f(n + 2, row, x + 1, k, c - 1);
+	}
+	
+	while (k <= row) {
+		cout << "\t" << "\t";
+		for (int i = 0; i < c; i++) cout << " ";
+		for (int i = 0; i < n; i++) cout << x;
+		for (int i = 0; i < c; i++) cout << " ";
+		cout << endl;
+		k++;
+		f(n - 2, row, x - 1, k, c + 1);
+	}
+	
+}
+
+int main() {
+
+	int n; cin >> n;
+	int row = n + 1;
+	int k = 1, c = (n - 1) / 2;
+	f(1, row, 1, k, c);
+	//k для ограничение выводимого кол-ва строк
+	//row отвечает за кол-во строк на вывод, идет сначала до n/2 и потом до n
+	//х отвечает за выводимое число
+	//с отвечает за количество пробелов(для выравнивания по центру)
+}
