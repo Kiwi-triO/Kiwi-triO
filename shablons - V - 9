@@ -2,50 +2,42 @@
 
 using namespace std;
 
-
-template <typename T>
-void input(T **arr, int n) { //передаю массив по указателю
+template <class X> void input(X** ar, int n) {
 	for (int i = 0; i < n; i++) {
-		arr[i] = new int[n];
+		for (int j = 0; j < n; j++) {
+			cin >> ar[i][j];
+		}
 	}
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < n; j++)
-			cin >> arr[i][j];
-
 }
 
-template <typename T>
-void work(T** arr, int n) {
-	T max = arr[0][0];
-	int k = 0;
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < n; j++)
-			if (max < arr[i][j])
-				max = arr[i][j];
-
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < n; j++)
-			if (max == arr[i][j])
-				k++;
-	cout << k << endl << endl;
-	
-}
-template <typename T>
-void output(T** arr, int n) {
+template <class X> X max(X** ar, int n) {
+	X max = ar[0][0];
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++)
-			cout << arr[i][j] << " ";
+		for (int j = 0; j < n; j++) {
+			if (max < ar[i][j]) max = ar[i][j];
+		}
+	}
+	return max;
+}
+
+template <class X> void output(X** ar, int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << ar[i][j] << " ";
+		}
 		cout << endl;
 	}
-
+	cout << endl;
 }
 
 int main() {
-
-	int n;
-	cin >> n;
-	int** arr = new int *[n];
-	input(arr, n); work(arr, n); output(arr, n);
-	
-
+	int n; cin >> n;
+	int** ar = new int*[n];
+	for (int i = 0; i < n; i++) {
+		ar[i] = new int[n];
+	}
+	input(ar, n);
+	cout << endl;
+	output(ar, n);
+	cout << "Max of Array is " << max(ar, n) << endl;
 }
