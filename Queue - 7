@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+#include <queue>
+#include <stack>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+	queue <int> st1, st2;
+	int n, x; cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> x;
+		st1.push(x);
+	}
+	while (!st1.empty()) {
+		x = st1.front();
+		st2.push(x);
+		st1.pop();
+		if (!st1.empty()) {
+			while (st1.front() == x) {
+				if (!st1.empty())
+					st1.pop();
+			}
+		}
+	}
+	while (!st2.empty()) {
+		cout << st2.front() << " ";
+		st2.pop();
+	}
+
+}
